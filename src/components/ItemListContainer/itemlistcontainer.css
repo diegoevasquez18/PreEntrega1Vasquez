@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    align-items: flex-start;
+}
+
+.subTitle{
+    margin-left: 5px;
+}
+
+.cartWidget{
+
+}
+

@@ -1,0 +1,28 @@
+
+.navbar{
+    background-color: wheat;
+
+}
+.navbar-toggler {
+    margin: 15px;
+}
+.nav-item{
+    margin: 10px;
+    border-bottom: 1px solid rgba(114, 124, 133, 0.733, 0.1);
+}
+
+.container-fluid{
+    height: 75px;
+}
+
+.divLogo{
+    width: 1px;
+}
+
+.iconNav img {
+    width: 200px;
+    filter: brightness(1.1);
+    mix-blend-mode: multiply;
+    position: relative;
+    color: wheat
+}
