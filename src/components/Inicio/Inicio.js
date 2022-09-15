@@ -4,9 +4,7 @@ import React from 'react'
 const Inicio = () => {
     return (
         <div>
-            <h1>
-                Bienvenidos a Tabacos SA.
-            </h1>
+            <h1>Tabacos SA</h1>
         </div>
     );
 

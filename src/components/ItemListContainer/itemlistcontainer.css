@@ -1,13 +1,13 @@
-.container {
-    display: flex;
-    align-items: flex-start;
+.container-fluid {
+   display: flex;
+   justify-content: space-between;
+   padding: 10px;
 }
 
 .subTitle{
     margin-left: 5px;
 }
-
-.cartWidget{
-
+.cartWidget {
+    margin-right: 5px;
 }
 

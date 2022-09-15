@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const Nosotros = () => {
+const Inicio = () => {
     return (
         <div>
             <h1>
@@ -12,4 +12,4 @@ const Nosotros = () => {
 
 }
 
-export default Nosotros
+export default Inicio

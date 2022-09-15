@@ -26,3 +26,6 @@
     position: relative;
     color: wheat
 }
+.cartWidget {
+    padding-right: 20px;
+}
