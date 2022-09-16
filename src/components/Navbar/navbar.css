@@ -1,6 +1,7 @@
 
-.navbar{
+.navbar, button{
     background-color: wheat;
+    
 
 }
 .navbar-toggler {
@@ -8,7 +9,6 @@
 }
 .nav-item{
     margin: 10px;
-    border-bottom: 1px solid rgba(114, 124, 133, 0.733, 0.1);
 }
 
 .container-fluid{
