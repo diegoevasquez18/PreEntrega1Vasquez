@@ -1,0 +1,8 @@
+@media only screen and (max-width: 764px) {
+    .botonesItems {
+        display: flex;
+    }
+}
+.botonesItems {
+    display: flex;
+}

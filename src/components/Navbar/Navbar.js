@@ -4,28 +4,32 @@ import Icon from '../../images/icons/iconoNav.png'
 import CartWidget from '../CartWidget/CartWidget';
 import './navbar.css'
 
+const abrirCarro = () => {
+  console.log('click')
+}
+
 const Nav = () => {
   return (
     <div>
-    <nav className="navbar navbar-expand-lg navbar-light">
-      <button className="navbar-brand" to='../Inicio/Inicio.js'><i className='iconNav'><img src={ Icon } alt="iconoNavBar"/></i></button>
+    <nav className="navbar navbar-expand-lg navbar-light" >
+      <button className="navbar-brand-icon" to='../Inicio/Inicio.js'><i className='iconNav'><img src={ Icon } alt="iconoNavBar"/></i></button>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav">
           <li className="nav-item">
-          <button className="navbar-brand" to='../News/News.js'>Tabacos</button>
+          <button className="navbar-brand" to='../News/News.js'>Femeninos</button>
           </li>
           <li className="nav-item">
-          <button className="navbar-brand" to='/preentrega1-vasquez/src/components/ItemListContainer/ItemListContainer.js'>Papelillos</button>
+          <button className="navbar-brand" to='/preentrega1-vasquez/src/components/ItemListContainer/ItemListContainer.js'>Masculinos</button>
           </li>
           <li className="nav-item">
           <button className="navbar-brand" to='/preentrega1-vasquez/src/components/Nosotros/Nosotros.js'>Nosotros</button>
           </li>
         </ul>
       </div>
-      <div className='cartWidget'>
+      <div className='cartWidget' onClick={abrirCarro}>
                 <CartWidget/>
         </div>
   </nav>

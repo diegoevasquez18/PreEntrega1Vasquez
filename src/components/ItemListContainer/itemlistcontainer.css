@@ -1,6 +1,6 @@
 .container-fluid {
    display: flex;
-   justify-content: space-between;
+   justify-content: center;
    padding: 10px;
 }
 
@@ -10,4 +10,8 @@
 .cartWidget {
     margin-right: 5px;
 }
-
+.containerIlist {
+    display: flex;
+    justify-content: center;
+    padding-top: 15px;
+}

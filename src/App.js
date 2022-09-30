@@ -3,6 +3,8 @@ import React from 'react';
 import Navbar from './components/Navbar/Navbar'
 import Producto from './components/ItemListContainer/ItemListContainer';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import Inicio from './components/Inicio/Inicio';
+
 
 
 export default function App() {
@@ -12,7 +14,10 @@ export default function App() {
           <Navbar />
         </div>
         <div>
-          <Producto greeting={"Tabacos SA"}/>
+          <Producto greeting={"FRAGRANCEMARKET"}/>
+        </div>
+        <div>
+          <Inicio />
         </div>
       </div>
   );

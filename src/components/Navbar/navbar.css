@@ -1,8 +1,17 @@
+@media only screen and (max-width: 993px){
+    .navbar-brand-icon {
+        display: none;
+    }
+    .navbar {
+        display: flex;
+    }
+}
 
 .navbar, button{
-    background-color: wheat;
-    
-
+    background-color: rgba(172, 179, 112, 0.541);
+}
+.navbar-brand {
+    margin: 5px;
 }
 .navbar-toggler {
     margin: 15px;
@@ -20,7 +29,7 @@
 }
 
 .iconNav img {
-    width: 200px;
+    width: 150px;
     filter: brightness(1.1);
     mix-blend-mode: multiply;
     position: relative;
