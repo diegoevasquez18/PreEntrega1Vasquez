@@ -1,7 +1,6 @@
 import React from 'react'
 import Carousel from 'react-bootstrap/Carousel'
 import "./inicio.css"
-import Set from "../SetProducts/Sets.jsx"
 
 const Inicio = () => {
   return (
@@ -34,9 +33,6 @@ const Inicio = () => {
         <Carousel.Caption></Carousel.Caption>
       </Carousel.Item>
     </Carousel>
-    </div>
-    <div className='containerSet'>
-       <Set/>
     </div>
     </div>
     );

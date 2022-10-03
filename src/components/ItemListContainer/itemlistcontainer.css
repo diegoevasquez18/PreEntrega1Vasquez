@@ -11,7 +11,12 @@
     margin-right: 5px;
 }
 .containerIlist {
+    justify-content: space-around;
+}
+.containerSets {
+    margin: 5px;
     display: flex;
-    justify-content: center;
-    padding-top: 15px;
+}
+.cardSet {
+    margin: 5px;
 }

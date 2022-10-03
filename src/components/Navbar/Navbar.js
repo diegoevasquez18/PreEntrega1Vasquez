@@ -1,5 +1,5 @@
 import React from 'react'
-//import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Icon from '../../images/icons/iconoNav.png'
 import CartWidget from '../CartWidget/CartWidget';
 import './navbar.css'
@@ -12,20 +12,20 @@ const Nav = () => {
   return (
     <div>
     <nav className="navbar navbar-expand-lg navbar-light" >
-      <button className="navbar-brand-icon" to='../Inicio/Inicio.js'><i className='iconNav'><img src={ Icon } alt="iconoNavBar"/></i></button>
+      <Link className="navbar-brand-icon" to='/'><i className='iconNav'><img src={ Icon } alt="iconoNavBar"/></i></Link>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav">
           <li className="nav-item">
-          <button className="navbar-brand" to='../News/News.js'>Femeninos</button>
+          <Link className="navbar-brand" to={`/category/femeninos`}>Femeninos</Link>
           </li>
           <li className="nav-item">
-          <button className="navbar-brand" to='/preentrega1-vasquez/src/components/ItemListContainer/ItemListContainer.js'>Masculinos</button>
+          <Link className="navbar-brand" to={`/category/masculinos`}>Masculinos</Link>
           </li>
           <li className="nav-item">
-          <button className="navbar-brand" to='/preentrega1-vasquez/src/components/Nosotros/Nosotros.js'>Nosotros</button>
+          <Link className="navbar-brand" to='../SetProducts/Sets.jsx'>Nosotros</Link>
           </li>
         </ul>
       </div>
