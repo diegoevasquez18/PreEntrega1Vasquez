@@ -18,7 +18,6 @@ const Productos = () => {
             setLoading(false);
         })
     },[categoryId])
-    console.log(products);
 
     if(loading) {
         return <h1>Cargando...</h1>
