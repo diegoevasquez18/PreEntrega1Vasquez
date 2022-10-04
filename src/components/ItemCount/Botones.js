@@ -4,6 +4,7 @@ import Contador from "../ItemCount/Contador";
 import { useState } from "react";
 import './botones.css'
 
+
 const Botones = () => {
 
     const [numContador, setNumContador] = useState (0); 
@@ -23,7 +24,7 @@ const Botones = () => {
         />
         <Contador  numContador={numContador}/>
         <BotonAgregar 
-        texto="+"
+        texto="+" 
         botonDeClick={true}
         manejarClick={agregar}/>
         </div>

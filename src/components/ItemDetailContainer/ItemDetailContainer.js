@@ -3,6 +3,7 @@ import { getProduct } from '../../asyncMock';
 //import CartWidget from '../CartWidget/CartWidget'
 import { useParams } from 'react-router-dom';
 import Detalle from '../ItemDetail/ItemDetail';
+import './itemDetailContainer.css'
 
 const ProductDetail = () => {
     const[product, setProduct] = useState ({})
@@ -21,9 +22,15 @@ const ProductDetail = () => {
         return <h1>Cargando...</h1>
     }
     
-    return <div>
+    return( 
+            <div className='itemDetailContainer'>
+             <div className='detalle'>
                <Detalle product={product} />
+             </div>
            </div>
-}
+           
+
+           
+)}
 
 export default ProductDetail

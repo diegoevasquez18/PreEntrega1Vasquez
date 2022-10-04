@@ -10,13 +10,14 @@
 .cartWidget {
     margin-right: 5px;
 }
-.containerIlist {
-    justify-content: space-around;
-}
 .containerSets {
     margin: 5px;
     display: flex;
 }
 .cardSet {
     margin: 5px;
+}
+h1{
+    display: flex;
+    justify-content: center;
 }

@@ -25,7 +25,7 @@ const Nav = () => {
           <Link className="navbar-brand" to={`/category/masculinos`}>Masculinos</Link>
           </li>
           <li className="nav-item">
-          <Link className="navbar-brand" to='../SetProducts/Sets.jsx'>Sets</Link>
+          <Link className="navbar-brand" to={`/category/set`}>Sets</Link>
           </li>
         </ul>
       </div>

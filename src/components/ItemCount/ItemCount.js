@@ -1,11 +1,13 @@
 import React from "react";
+import Button from 'react-bootstrap/Button';
+import './itemCount.css'
 
 const BotonAgregar = ({ texto, botonDeClick, manejarClick}) => {
     
-    return <button className={ botonDeClick ? 'boton-sumar' : 'boton-restar' }
+    return <Button  className={ botonDeClick ? 'boton-sumar' : 'boton-restar' }
                     onClick={ manejarClick }>
                     {texto}
-           </button>
+           </Button>
 }
 
 export default BotonAgregar
