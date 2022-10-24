@@ -1,20 +1,25 @@
+import { useContext } from 'react';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
+import { Context } from '../../App';
 import './cards2.css'
 
 
-function Cards({prod}) {
+function Cards({id, img, name, description, price}) {
+
+
+
   return (
     <div className="cards col-md-4" >
-        <Card.Img variant="top" src={prod.img} />
+        <Card.Img variant="top" src={img} />
         <Card.Body>
-          <Card.Title>{prod.name}</Card.Title>
+          <Card.Title>{name}</Card.Title>
           <Card.Text>
-            {prod.description}
+            {description}
           </Card.Text>
-          <h3 >${prod.price}</h3>
+          <h3 >${price}</h3>
         </Card.Body>
-        <Link to={`/detail/${prod.id}`} className="btn btn-primary">Ver detalle</Link>
+        <Link to={`/detail/${id}`} className="btn btn-primary">Ver detalle</Link>
     </div>
   );
 }

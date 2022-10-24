@@ -8,10 +8,51 @@
 }
 
 .navbar, button{
-    background-color: rgba(172, 179, 112, 0.541);
+    background-color: rgba(172, 179, 112, 0.932);
 }
-.navbar-brand {
-    margin: 5px;
+.navbar{
+    height: auto;
+}
+.navbar-brand-icon {
+    
+}
+.Option {
+    text-decoration: none;
+    margin: 0 50px;
+    width: auto;
+    padding: 12px;
+    background-color: rgba(195, 207, 79, 0.541);
+    flex: none;
+    display: flex;
+    order: 1;
+    align-items: center;
+    flex-grow: 0;
+    justify-content: center;
+    color: bisque;
+    border: none;
+    cursor: pointer;
+    outline: inherit;
+
+}
+
+.ActiveOption {
+    text-decoration: none;
+    border-radius: 2;
+    margin: 0 50px;
+    width: auto;
+    padding: 12px;
+    font-size: 15px;
+    background-color: rgb(156, 218, 132);
+    flex: none;
+    display: flex;
+    order: 1;
+    align-self: center;
+    flex-grow: 0;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-style: none;
+    cursor: pointer;
+    outline: inherit;
 }
 .navbar-toggler {
     margin: 15px;

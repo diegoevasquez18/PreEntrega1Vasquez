@@ -1,23 +1,42 @@
 import { Link } from "react-router-dom"
 import Botones from "../ItemCount/Botones"
-import Button from 'react-bootstrap/Button';
+import { useState, useContext } from "react"
 import './itemsDetail.css'
+import { CartContext } from "../../context/CartContext"
+import { AlertContext } from "../../Alerta/AlertContext"
 
-const Detalle = ({product}) => {
+const Detalle = ({id, stock, img, name, detail, price, quantity}) => {
+
+    const [quantityToAdd, setQuantityToAdd] = useState(0)
+
+    const { addItem, getProductQuantity } = useContext(CartContext)
+    const { setAlert } = useContext (AlertContext) 
+
+    const handleOnAdd = (quantity) => {
+
+        setQuantityToAdd(quantity)
+
+        const productToAdd ={
+            id, name, price, quantity
+        }
+        addItem(productToAdd)
+        setAlert(`Se agego ${name} correctamente. ${quantity} unidade(s)`)
+        
+ }  
+
+   // const productAddedQuantity = getProductQuantity(id)
+
     return (
             <div className="cardDetail">
                 <div className="cardDetallado">
-                    <img className="imgDetail" src={product.img} alt=".."/>
+                    <img className="imgDetail" src={img} alt=".."/>
                     <div className="card-body">
-                        <h5 className="card-title">{product.name}</h5>
-                        <p className="card-text">{product.detail}</p>
-                        <h3>${product.price}</h3>
+                        <h5 className="card-title">{name}</h5>
+                        <p className="card-text">{detail}</p>
+                        <h3>${price}</h3>
                         <div>
                         <div>
-                            <Botones />
-                        </div>
-                        <div className="comprar">
-                            <Button variant="success">Comprar</Button>
+                            <Botones handleOnAdd={handleOnAdd} stock={stock} quantity={quantity} />
                         </div>
                         </div>
                         <Link to='/' className="btn btn-primary">Voler</Link>
