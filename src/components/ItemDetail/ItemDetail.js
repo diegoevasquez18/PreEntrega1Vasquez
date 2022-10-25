@@ -2,14 +2,14 @@ import { Link } from "react-router-dom"
 import Botones from "../ItemCount/Botones"
 import { useState, useContext } from "react"
 import './itemsDetail.css'
-import { CartContext } from "../../context/CartContext"
+import { useCartContext } from "../../context/CartContext"
 import { AlertContext } from "../../Alerta/AlertContext"
 
 const Detalle = ({id, stock, img, name, detail, price, quantity}) => {
 
     const [quantityToAdd, setQuantityToAdd] = useState(0)
 
-    const { addItem, getProductQuantity } = useContext(CartContext)
+    const { addItem } = useCartContext()
     const { setAlert } = useContext (AlertContext) 
 
     const handleOnAdd = (quantity) => {

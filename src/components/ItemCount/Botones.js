@@ -6,7 +6,7 @@ import { useState } from "react";
 import './botones.css'
 
 
-const Botones = ({stock = 0 , initial = 0, handleOnAdd}) => {
+const Botones = ({stock = 0 , initial = 1, handleOnAdd}) => {
 
     const [numContador, setNumContador] = useState (initial); 
 

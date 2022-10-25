@@ -1,21 +1,48 @@
 import './cart.css'
+import { useState } from 'react'
+import CartItem from '../CartItem/CartItem'
+import { useCartContext } from '../../context/CartContext'
+import { Link } from 'react-router-dom'
+import { useOrders } from "../../services/firebase/order"
 
-const Cart = ({name, price, products}) => {
+    const Cart = () => {
+    const [loading, setLoading] = useState(false)
+    const [orderId, setOrderId] = useState('')
+    const{ cart, totaly, removeItem } = useCartContext()
+
+    const { createOrder } = useOrders()
+
+    const handleCreateOrder = () => {
+        setLoading(true)
+
+        createOrder().then(response => {
+            console.log(response)
+            if(response.result === 'orderCreated') {
+                removeItem()
+                setOrderId(response.id)
+            }
+        }).catch(error => {
+            console.log(error)
+        }).finally(() => {
+            setLoading(false)
+        })
+    }
+    
+    if(cart.length === 0){
+        return(
+            <>
+                <p>No hay productos</p>
+                <Link to='/'>Hacer Compras</Link>
+            </>     
+        )}
     return(
-        <div className="container">
-        <h3>{name}</h3>
-        <p>${price}</p>
-        {products ? 
-        (
-            <button className="btn" onClick={() => console.log('hola')}>Agregar</button>
-        ) : 
-        (
-            <button className="btn del" onClick={() => console.log('chau')}>Eliminar</button>
-        )
-        }
-    </div>
+        <div>
+            {
+                cart.map(product => <CartItem key={product.id} product={product}/>)
+            }
+            <p>Total: ${totaly}</p>
+            <button onClick={handleCreateOrder}>Finalizar compra</button>
+        </div>
     )
-
 }
-
 export default Cart

@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import Detalle from '../ItemDetail/ItemDetail';
 import './itemDetailContainer.css'
-import { getDoc, doc } from 'firebase/firestore';
-import { db } from '../../services/firebase';
+import { getProductsById } from '../../services/firebase/products';
 
 const ProductDetail = ({setCart} ) => {
     const[product, setProduct] = useState ({})
@@ -11,14 +10,8 @@ const ProductDetail = ({setCart} ) => {
     const { productId } = useParams()
     useEffect(() =>{
        
-        const docRef = doc(db, 'products', productId)
-        
-        getDoc(docRef).then(doc =>{
-            const data = doc.data()
-
-            const productAdapted = {id: doc.id, ...data}
-
-            setProduct(productAdapted)
+        getProductsById(productId).then(product =>{
+            setProduct(product)
         }).catch(error =>{
             alert('no funca')
         })

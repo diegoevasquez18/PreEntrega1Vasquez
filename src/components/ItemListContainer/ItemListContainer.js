@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react'
 import './itemlistcontainer.css';
 import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom';
-import { collection, getDocs, query, where } from 'firebase/firestore';
-import { db } from '../../services/firebase';
+import { getProducts } from '../../services/firebase/products';
 const Productos = () => {
     const[products, setProducts] = useState ([])
     const [loading, setLoading] = useState(true)
@@ -12,25 +11,14 @@ const Productos = () => {
     useEffect(() =>{
         setLoading(true)
         
-        const collectionRef = categoryId 
-            ? query(collection(db, 'products'), where('category', '==', categoryId))
-            : (collection(db, 'products'))
-
-        getDocs(collectionRef).then(response =>{
-            console.log(response);
-
-            const productsAdapted = response.docs.map(doc =>{
-                const data = doc.data()
-                return{id: doc.id, ...data}
-                })
-                setProducts(productsAdapted)
-        })
-        .catch(error =>{
-            alert('no funca')
-        })
-        .finally(() =>{
+        getProducts(categoryId).then(products =>{
+            setProducts(products)
+        }).catch(error =>{
+            console.log(error);
+        }).finally(()=>{
             setLoading(false)
         })
+        
     },[categoryId])
 
     if(loading) {

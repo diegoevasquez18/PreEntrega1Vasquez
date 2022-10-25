@@ -1,6 +1,7 @@
 import {NavLink} from 'react-router-dom';
 import { useContext } from 'react';
-import Icon from '../../images/icons/iconoNav.png'
+import Icon from '../../images/icons/icon.png'
+import IconNav from '../../images/icons/iconoNav.png'
 import CartWidget from '../CartWidget/CartWidget';
 import './navbar.css'
 import { ShowContext } from '../../showContext/ShowContext';
@@ -15,7 +16,7 @@ const Nav = () => {
   return (
     <div>
     <nav className="navbar navbar-expand-lg navbar-light" >
-      <NavLink className="navbar-brand-icon" to='/'><i className='iconNav'><img src={ Icon } alt="iconoNavBar"/></i></NavLink>
+      <NavLink className="navbar-brand-icon" to='/'><i className='iconNav'><img src={ IconNav } alt="iconoNavBar"/></i></NavLink>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
@@ -33,7 +34,7 @@ const Nav = () => {
         </ul>
       </div>
       <div className='cartWidget'>
-      <NavLink  to={`/cart`}>{CartWidget}</NavLink>
+      <NavLink  to={`/cart`}><CartWidget/></NavLink>
       </div>
   </nav>
   </div>

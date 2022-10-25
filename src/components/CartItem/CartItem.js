@@ -1,39 +1,24 @@
-import { useContext } from "react"
-import { CartContext } from "../../context/CartContext"
+import { useCartContext } from "../../context/CartContext"
 
 
 
-const CartItem = ({id, name, quantity, price}) =>{
-    const { removeItem } = useContext(CartContext)
-
-    const handleRemove = (id) =>{
-        removeItem(id)
-    }
-
-   // const handleOnAdd = (quantity) =>{
-
-     //   const productToAdd ={
-       //     id, name, price, quantity
-      //  }
-
-      //  addItem(productToAdd)
-     //   setMessage('se actualizo producto')
- //   }
+const CartItem = ({ product }) =>{
+    const { removeItem } = useCartContext()
 
     return(
         <article>
             <header>
                 <h2>
-                    {name}
+                    {product.name}
                 </h2>
             </header>
             <section>
-                <p>Cantidad: {quantity}</p>
-                <p>Precio x unidad: ${price}</p>
+                <p>Cantidad: {product.quantity}</p>
+                <p>Precio x unidad: ${product.price}</p>
             </section>
             <footer>
-                <p>Subtotal: ${price * quantity}</p>
-                <button onClick={()=> handleRemove(id)}>X</button>
+                <p>Subtotal: ${product.price * product.quantity}</p>
+                <button onClick={()=> removeItem(product.id)}>X</button>
             </footer>
         </article>
 
