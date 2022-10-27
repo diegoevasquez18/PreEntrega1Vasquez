@@ -8,7 +8,7 @@ import { useOrders } from "../../services/firebase/order"
     const Cart = () => {
     const [loading, setLoading] = useState(false)
     const [orderId, setOrderId] = useState('')
-    const{ cart, totaly, removeItem } = useCartContext()
+    const{ cart, totaly, removeItem, clearCart } = useCartContext()
 
     const { createOrder } = useOrders()
 
@@ -16,9 +16,9 @@ import { useOrders } from "../../services/firebase/order"
         setLoading(true)
 
         createOrder().then(response => {
-            console.log(response)
             if(response.result === 'orderCreated') {
                 removeItem()
+                clearCart()
                 setOrderId(response.id)
             }
         }).catch(error => {
@@ -41,6 +41,7 @@ import { useOrders } from "../../services/firebase/order"
                 cart.map(product => <CartItem key={product.id} product={product}/>)
             }
             <p>Total: ${totaly}</p>
+            <button onClick={clearCart}>Limpiar carrito</button>
             <button onClick={handleCreateOrder}>Finalizar compra</button>
         </div>
     )

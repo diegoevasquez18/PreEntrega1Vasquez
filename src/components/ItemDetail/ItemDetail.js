@@ -22,24 +22,26 @@ const Detalle = ({id, stock, img, name, detail, price, quantity}) => {
         addItem(productToAdd)
         setAlert(`Se agego ${name} correctamente. ${quantity} unidade(s)`)
         
- }  
-
+ } 
    // const productAddedQuantity = getProductQuantity(id)
 
     return (
-            <div className="cardDetail">
-                <div className="cardDetallado">
+            <div className="cardDetailContainer">
+                <div className="cardDetalladoItem">
                     <img className="imgDetail" src={img} alt=".."/>
                     <div className="card-body">
                         <h5 className="card-title">{name}</h5>
                         <p className="card-text">{detail}</p>
+                    <div className="card-important">
                         <h3>${price}</h3>
+                        <p>({stock})</p>
                         <div>
                         <div>
-                            <Botones handleOnAdd={handleOnAdd} stock={stock} quantity={quantity} />
+                           {stock === 0 ? <h3>No hay stock!</h3> : <Botones handleOnAdd={handleOnAdd} stock={stock} quantity={quantity} /> }
                         </div>
                         </div>
                         <Link to='/' className="btn btn-primary">Voler</Link>
+                    </div>
                     </div>
                     </div>
             </div>

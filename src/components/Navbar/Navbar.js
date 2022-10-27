@@ -1,17 +1,9 @@
 import {NavLink} from 'react-router-dom';
-import { useContext } from 'react';
-import Icon from '../../images/icons/icon.png'
 import IconNav from '../../images/icons/iconoNav.png'
 import CartWidget from '../CartWidget/CartWidget';
 import './navbar.css'
-import { ShowContext } from '../../showContext/ShowContext';
 
 const Nav = () => {
-  const { handleOpen, handleClose } = useContext (ShowContext)
-  
-  const mostrar = ()=>{
-    handleOpen()
-  }
 
   return (
     <div>
@@ -35,6 +27,10 @@ const Nav = () => {
       </div>
       <div className='cartWidget'>
       <NavLink  to={`/cart`}><CartWidget/></NavLink>
+      </div>
+      <div>
+      <NavLink  to={`/login`}>Ingresar</NavLink>
+      <NavLink  to={`/register`}>Registrate!</NavLink>
       </div>
   </nav>
   </div>
