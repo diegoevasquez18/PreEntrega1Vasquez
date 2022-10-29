@@ -1,18 +1,16 @@
-import React, { useContext } from 'react';
-import './cartwidget.css'
-import { useCartContext } from '../../context/CartContext';
-import Icon from '../../images/icons/icon.png'
+import "./cartwidget.css";
+import Icon from "../../images/icons/icon.png";
+
+import { useCart } from "../../context/CartContext";
 
 const CartWidget = () => {
-
-  const { totalQuantity } = useCartContext ()
+  const { totalQuantity } = useCart();
   return (
     <div className="cart-widget">
       <div className="qty-display">{totalQuantity}</div>
-      <img src={ Icon } alt=''/>
+      <img src={Icon} alt="" />
     </div>
   );
 };
-  
 
 export default CartWidget;

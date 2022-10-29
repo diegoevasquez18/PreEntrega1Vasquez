@@ -1,25 +1,19 @@
-import { useContext } from 'react';
-import Card from 'react-bootstrap/Card';
-import { Link } from 'react-router-dom';
-import { Context } from '../../App';
-import './cards2.css'
+import Card from "react-bootstrap/Card";
+import { Link } from "react-router-dom";
+import "./cards2.css";
 
-
-function Cards({id, img, name, description, price}) {
-
-
-
+function Cards({ id, img, name, description, price }) {
   return (
-    <div className="cards col-md-4" >
-        <Card.Img variant="top" src={img} />
-        <Card.Body>
-          <Card.Title>{name}</Card.Title>
-          <Card.Text>
-            {description}
-          </Card.Text>
-          <h3 >${price}</h3>
-        </Card.Body>
-        <Link to={`/detail/${id}`} className="btn btn-primary">Ver detalle</Link>
+    <div className="cards col-md-4">
+      <Card.Img variant="top" src={img} />
+      <Card.Body>
+        <Card.Title>{name}</Card.Title>
+        <Card.Text>{description}</Card.Text>
+        <h3>${price}</h3>
+      </Card.Body>
+      <Link to={`/detail/${id}`} className="btn btn-primary">
+        Ver detalle
+      </Link>
     </div>
   );
 }

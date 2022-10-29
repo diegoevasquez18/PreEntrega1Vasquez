@@ -1,12 +1,8 @@
 import React from "react";
-import './contador.css'
+import "./contador.css";
 
-const Contador = ({onAdd}) => {
-    return (
-        <div className="contador">
-            {onAdd}
-        </div>
-    )
-}
+const Contador = ({ onAdd }) => {
+  return <div className="contador">{onAdd}</div>;
+};
 
-export default Contador
+export default Contador;

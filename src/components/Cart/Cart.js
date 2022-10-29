@@ -1,49 +1,143 @@
-import './cart.css'
-import { useState } from 'react'
-import CartItem from '../CartItem/CartItem'
-import { useCartContext } from '../../context/CartContext'
-import { Link } from 'react-router-dom'
-import { useOrders } from "../../services/firebase/order"
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-    const Cart = () => {
-    const [loading, setLoading] = useState(false)
-    const [orderId, setOrderId] = useState('')
-    const{ cart, totaly, removeItem, clearCart } = useCartContext()
+import CartItem from "../CartItem/CartItem";
 
-    const { createOrder } = useOrders()
+import { useOrders } from "../../services/firebase/order";
 
-    const handleCreateOrder = () => {
-        setLoading(true)
+import { useCart } from "../../context/CartContext";
+import { useAlert } from "../../Alerta/AlertContext";
 
-        createOrder().then(response => {
-            if(response.result === 'orderCreated') {
-                removeItem()
-                clearCart()
-                setOrderId(response.id)
-            }
-        }).catch(error => {
-            console.log(error)
-        }).finally(() => {
-            setLoading(false)
-        })
-    }
-    
-    if(cart.length === 0){
-        return(
-            <>
-                <p>No hay productos</p>
-                <Link to='/'>Hacer Compras</Link>
-            </>     
-        )}
-    return(
-        <div>
-            {
-                cart.map(product => <CartItem key={product.id} product={product}/>)
-            }
-            <p>Total: ${totaly}</p>
-            <button onClick={clearCart}>Limpiar carrito</button>
-            <button onClick={handleCreateOrder}>Finalizar compra</button>
-        </div>
-    )
-}
-export default Cart
+import { Button, Flex, Text, Box, Spinner } from "@chakra-ui/react";
+import "./cart.css";
+
+const Cart = () => {
+  const [loading, setLoading] = useState(false);
+  const [orderId, setOrderId] = useState("");
+  const navigate = useNavigate();
+  const { cart, totaly, removeItem, clearCart, totalQuantity } = useCart();
+
+  const { createOrder } = useOrders();
+  const { setAlert } = useAlert();
+
+  const handleCreateOrder = () => {
+    setLoading(true);
+
+    createOrder()
+      .then((response) => {
+        if (response.result === "orderCreated") {
+          removeItem();
+          clearCart();
+          setOrderId(response.id);
+        }
+      })
+      .catch((error) => {
+        setAlert(error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
+
+  if (loading) {
+    return (
+      <Flex height="100%" flexDirection="column" justifyContent="center">
+        <Spinner />
+      </Flex>
+    );
+  }
+
+  if (orderId !== "") {
+    return (
+      <Flex
+        flexDirection="column"
+        justifyContent="space-between"
+        alignItems="center"
+        height="100%"
+        p={50}
+      >
+        <Box>
+          <Text fontSize="3xl">
+            Su pedido es correcto! Muchas gracias por utilizar Fragrance Market.
+            Su orden es: {orderId}. Contactese si tiene alguna consulta!
+          </Text>
+        </Box>
+        <Flex flexDirection="column">
+          <Button
+            variant="solid"
+            size="md"
+            backgroundColor="#eeeeee"
+            onClick={() => navigate("/")}
+          >
+            Inicio
+          </Button>
+        </Flex>
+      </Flex>
+    );
+  }
+
+  if (!totalQuantity) {
+    return (
+      <Flex
+        flexDirection="column"
+        justifyContent="space-between"
+        alignItems="center"
+        height="100%"
+        p={50}
+      >
+        <Box>
+          <Text fontSize="3xl">Your cart is empty</Text>
+        </Box>
+        <Flex flexDirection="column">
+          <Text fontSize="3xl">Check our products...</Text>
+          <Button
+            variant="solid"
+            size="md"
+            backgroundColor="#eeeeee"
+            onClick={() => navigate("/")}
+          >
+            Products
+          </Button>
+        </Flex>
+      </Flex>
+    );
+  }
+
+  return (
+    <Flex
+      flexDirection="column"
+      justifyContent="space-between"
+      alignItems="center"
+      height="100%"
+      p={50}
+    >
+      <Text fontSize="3xl" mb={20}>
+        Your cart
+      </Text>
+      <Flex flexDirection="column" height="100%">
+        {cart.map((product) => (
+          <CartItem key={product.id} product={product} />
+        ))}
+      </Flex>
+      <Flex
+        flexDirection="column"
+        justifyContent="space-between"
+        alignItems="center"
+        height="100%"
+      >
+        <Text fontWeight={800} fontSize={"3xl"}>
+          Total: ${totaly}
+        </Text>
+        <Button
+          variant="solid"
+          size="lg"
+          backgroundColor="#aaeeee"
+          onClick={handleCreateOrder}
+        >
+          Create Order
+        </Button>
+      </Flex>
+    </Flex>
+  );
+};
+export default Cart;
