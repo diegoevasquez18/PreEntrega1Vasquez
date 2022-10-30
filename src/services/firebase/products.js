@@ -16,9 +16,7 @@ export const getProducts = (categoryId) => {
 
     getDocs(collectionRef)
       .then((response) => {
-        console.log(response);
-
-        const productsAdapted = response.docs.map((doc) => {
+          const productsAdapted = response.docs.map((doc) => {
           const data = doc.data();
           return { id: doc.id, ...data };
         });
@@ -43,7 +41,7 @@ export const getProductsById = (productId) => {
         resolve(productAdapted);
       })
       .catch((error) => {
-        reject("no funca");
+        reject(error);
       });
   });
 };

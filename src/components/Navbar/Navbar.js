@@ -1,9 +1,16 @@
 import { NavLink } from "react-router-dom";
 import IconNav from "../../images/icons/iconoNav.png";
 import CartWidget from "../CartWidget/CartWidget";
+import { useAuth } from "../../context/AuthContext";
 import "./navbar.css";
 
 const Nav = () => {
+
+  const { user, logout } = useAuth();
+  const handleLogout = async () => {
+    await logout();
+  };
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light">
@@ -61,11 +68,11 @@ const Nav = () => {
           <NavLink to={`/cart`}>
             <CartWidget />
           </NavLink>
-        </div>
-        <div>
-          <NavLink to={`/login`}>Ingresar</NavLink>
-          <NavLink to={`/register`}>Registrate!</NavLink>
-        </div>
+        </div>{!user ?
+        <div className="nav-item">
+          <NavLink className="buttonGreeting" to={`/login`}>Ingresar</NavLink>
+        </div> :  <button className="buttonGreeting" onClick={handleLogout}>Salir</button>
+        }
       </nav>
     </div>
   );

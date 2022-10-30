@@ -86,17 +86,17 @@ const Cart = () => {
         p={50}
       >
         <Box>
-          <Text fontSize="3xl">Your cart is empty</Text>
+          <Text fontSize="3xl">Todavia no realizaste ninguna compra?</Text>
         </Box>
         <Flex flexDirection="column">
-          <Text fontSize="3xl">Check our products...</Text>
+          <Text fontSize="3xl">Mira nuestros productos...</Text>
           <Button
             variant="solid"
             size="md"
             backgroundColor="#eeeeee"
             onClick={() => navigate("/")}
           >
-            Products
+            Inicio
           </Button>
         </Flex>
       </Flex>

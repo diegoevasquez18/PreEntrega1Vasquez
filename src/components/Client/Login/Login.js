@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
+import './login.css'
 import { Button, Input } from "@chakra-ui/react";
-
+import { Form }  from '../Register/Register'
+ 
 import { useAuth } from "../../../context/AuthContext";
 
 
@@ -30,17 +32,24 @@ export function Login() {
     }
   };
   const handleGoogleSignin = async () => {
-    await loginWithGoogle();
-    navigate("/");
+    try {
+      await loginWithGoogle();
+      navigate("/");
+    } catch (error) {
+      setError(error.message);
+    }
   };
-
   return (
     <>
-      <div>
+    <div className="textRegis">
+      <h2>INGRESA CON EMAIL O CON TU CUENTA DE GOOGLE</h2>
+      </div>
+      <div className="formContainer">
         {error && <p>{error}</p>}
-        <form id="my-form" onSubmit={handleSubmit}>
-          <p>E-mail</p>
+        <form  className="form" id="my-form" onSubmit={handleSubmit}>
+          <p className="textForm">E-mail</p>
           <Input
+            className="inputForm"
             type="text"
             name="email"
             placeholder="Type here..."
@@ -48,19 +57,23 @@ export function Login() {
           />
           <p>Password</p>
           <Input
+            className="inputForm"
             type="password"
             name="password"
             placeholder="Type here..."
             onChange={handleChange}
           />
-        </form>
-      </div>
-      <Button type="submit" form="my-form">
+        <Button  className="buttonForm" type="submit" form="my-form">
         Login
       </Button>
       <div>
-        <button onClick={handleGoogleSignin}>Entra con google!</button>
+        <Button className="buttonForm" onClick={handleGoogleSignin}>Entra con google!</Button>
       </div>
+      </form>
+     </div>
+      <div className="textRegis">
+         <h2>NO TENES CUENTA? <NavLink to='/register'>REGISTRATE!</NavLink></h2>
+     </div>
     </>
   );
 }

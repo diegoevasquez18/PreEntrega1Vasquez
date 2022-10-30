@@ -1,13 +1,18 @@
-.formContainerRegister {
+.formContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 10px;
+    width: auto;
 }
 .form {
-    width: 40%;
     background-color: rgba(120, 146, 86, 0.199);
 }
 .inputForm{
     background-color: rgba(161, 226, 76, 0.288);    
+}
+.textRegis {
+    display: flex;
+    justify-content: center;
+    
 }

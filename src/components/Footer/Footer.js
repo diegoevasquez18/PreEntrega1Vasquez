@@ -1,7 +1,9 @@
+import './footer.css'
+
 export const Footer = () => {
     return(
-        <>  
-            <h3>ALL RIGHT RESERVED</h3>
-        </>
+        <div className="footer">  
+            <h3>Fragrance Market - ALL RIGHT RESERVED</h3>
+        </div>
     )
 }

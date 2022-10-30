@@ -1,6 +1,6 @@
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
-import "./cards2.css";
+import "./cards.css";
 
 function Cards({ id, img, name, description, price }) {
   return (
@@ -8,7 +8,7 @@ function Cards({ id, img, name, description, price }) {
       <Card.Img variant="top" src={img} />
       <Card.Body>
         <Card.Title>{name}</Card.Title>
-        <Card.Text>{description}</Card.Text>
+        <Card.Text className="cardText">{description}</Card.Text>
         <h3>${price}</h3>
       </Card.Body>
       <Link to={`/detail/${id}`} className="btn btn-primary">

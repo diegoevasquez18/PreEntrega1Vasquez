@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 import Botones from "../ItemCount/Botones";
 import { useState } from "react";
 import "./itemsDetail.css";
@@ -34,20 +35,19 @@ const Detalle = ({ id, stock, img, name, detail, price, quantity }) => {
         <img className="imgDetail" src={img} alt=".." />
         <div className="card-body">
           <h5 className="card-title">{name}</h5>
-          <p className="card-text">{detail}</p>
+          <p className="card-text-detail">{detail}</p>
           <div className="card-important">
             <h3>${price}</h3>
-            <p>({stock})</p>
+            <p>Stock({stock})</p>
             <div>
               {!user ? (
-                <button
-                  variant="solid"
+                <Button variant="primary" className="btnLogin"
                   size="md"
                   backgroundColor="#eeeeee"
                   onClick={() => navigate("/login")}
                 >
                   Login and buy
-                </button>
+                </Button>
               ) : quantityToAdd > 0 ? (
                 <h2>
                   You added {quantity} {name}
@@ -63,10 +63,10 @@ const Detalle = ({ id, stock, img, name, detail, price, quantity }) => {
                   Out of stock{" "}
                 </p>
               )}
-            </div>
             <Link to="/" className="btn btn-primary">
               Voler
             </Link>
+            </div>
           </div>
         </div>
       </div>

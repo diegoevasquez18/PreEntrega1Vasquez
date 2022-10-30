@@ -8,7 +8,7 @@ import Productos from "./components/ItemListContainer/ItemListContainer";
 import Profile from "./components/Client/Profile/Profile";
 import Cart from "./components/Cart/Cart";
 
-import { Form } from "./components/Client/Register/Register";
+import { Register } from "./components/Client/Register/Register";
 import { Greeting } from "./components/userData/UserData";
 import { Footer } from "./components/Footer/Footer";
 import { Login } from "./components/Client/Login/Login";
@@ -37,7 +37,7 @@ function App() {
                   />
                   <Route path="/cart" element={<Cart />} />
                   <Route path="/login" element={<Login />} />
-                  <Route path="/register" element={<Form />} />
+                  <Route path="/register" element={<Register />} />
                   <Route path="/profile" element={<Profile />} />
                 </Routes>
               </BrowserRouter>

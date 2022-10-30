@@ -1,22 +1,28 @@
-.cardDetailContainer{
-    padding: 0 70px 10px 70px;
+.cardDetailContainer {
+    display: inline-flex;
+    justify-content: center;
+    flex-wrap: nowrap;
 }
 .cardDetalladoItem {
     display: flex;
+    justify-content: center;
+    margin: 40px;
+    width: 50%;
     background-color: rgba(217, 230, 102, 0.548);
 }
 .imgDetail {
-    margin-left: 20%;
-    width: 100% ;
+    width: auto;
+    margin: 5px 5px 5px 5px;   
 }
-.card-title {
-    font-size: x-large;
-    margin: 10px;
+.card-body {
+   margin: 10px;    
 }
-.card-text {
-    margin: 15px;
-    width: 50%;
+.card-title{
+    font-size: 2.5rem
 }
+
+
 .card-important {
-    margin: 15px; 
+    margin: 10px;
+    width: 50%;
 }

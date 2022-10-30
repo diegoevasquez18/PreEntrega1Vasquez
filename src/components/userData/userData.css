@@ -4,3 +4,16 @@
     align-items: center;
     flex-direction: column;
 }
+.titleGreeting {
+    font-size: 2.5rem;
+}
+.buttonGreeting {
+    background-color: rgba(195, 207, 79, 0.541); /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
