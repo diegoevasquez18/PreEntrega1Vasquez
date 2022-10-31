@@ -28,4 +28,4 @@ See [`.env.example`](https://github.com/diegoevasquez18/ProyectoFinalVasquez/blo
 
 ## Test App
 
-https://ecommercevasquez-kkd4egntc-diegoevasquez18.vercel.app/
+https://proyectofinalvasquez-diegoevasquez18.vercel.app/
