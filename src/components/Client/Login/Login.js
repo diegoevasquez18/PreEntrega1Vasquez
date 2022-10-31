@@ -3,7 +3,6 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 import './login.css'
 import { Button, Input } from "@chakra-ui/react";
-import { Form }  from '../Register/Register'
  
 import { useAuth } from "../../../context/AuthContext";
 
@@ -63,13 +62,11 @@ export function Login() {
             placeholder="Type here..."
             onChange={handleChange}
           />
-        <Button  className="buttonForm" type="submit" form="my-form">
-        Login
-      </Button>
-      <div>
-        <Button className="buttonForm" onClick={handleGoogleSignin}>Entra con google!</Button>
+        <div className="btnLog">
+        <Button  className="buttonForm" type="submit" form="my-form">Login</Button>
+      <Button className="buttonForm" onClick={handleGoogleSignin}>Google</Button>
       </div>
-      </form>
+        </form>
      </div>
       <div className="textRegis">
          <h2>NO TENES CUENTA? <NavLink to='/register'>REGISTRATE!</NavLink></h2>

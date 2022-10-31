@@ -16,3 +16,6 @@
     justify-content: center;
     
 }
+.btnLog{
+    display: grid;
+}

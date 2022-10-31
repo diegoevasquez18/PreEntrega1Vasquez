@@ -8,7 +8,12 @@ import { useOrders } from "../../services/firebase/order";
 import { useCart } from "../../context/CartContext";
 import { useAlert } from "../../Alerta/AlertContext";
 
-import { Button, Flex, Text, Box, Spinner } from "@chakra-ui/react";
+import { Button, Flex, Text, Box, Spinner,Table,
+  Thead,
+  Tr,
+  Th,
+  TableContainer
+ } from "@chakra-ui/react";
 import "./cart.css";
 
 const Cart = () => {
@@ -104,21 +109,23 @@ const Cart = () => {
   }
 
   return (
-    <Flex
-      flexDirection="column"
-      justifyContent="space-between"
-      alignItems="center"
-      height="100%"
-      p={50}
-    >
-      <Text fontSize="3xl" mb={20}>
-        Your cart
-      </Text>
-      <Flex flexDirection="column" height="100%">
-        {cart.map((product) => (
+    <div className="cartContainer">
+      <TableContainer>
+      <Table variant='simple'>
+      <Thead>
+        <Tr>
+          <Th>Cantidad</Th>
+          <Th>Nombre</Th>
+          <Th isNumeric>Precio</Th>
+          <Th>Precio total</Th>
+          <Th>Eliminar</Th>
+        </Tr>
+      </Thead>
+    {cart.map((product) => (
           <CartItem key={product.id} product={product} />
         ))}
-      </Flex>
+        </Table>
+     </TableContainer>
       <Flex
         flexDirection="column"
         justifyContent="space-between"
@@ -137,7 +144,7 @@ const Cart = () => {
           Create Order
         </Button>
       </Flex>
-    </Flex>
+    </div>
   );
 };
 export default Cart;

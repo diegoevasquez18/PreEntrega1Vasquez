@@ -1,22 +1,23 @@
 import { useCart } from "../../context/CartContext";
+import {
+  Tbody,
+  Tr,
+  Td,
+} from '@chakra-ui/react'
 
 const CartItem = ({ product }) => {
   const { removeItem } = useCart();
 
   return (
-    <article>
-      <header>
-        <h2>{product.name}</h2>
-      </header>
-      <section>
-        <p>Cantidad: {product.quantity}</p>
-        <p>Precio x unidad: ${product.price}</p>
-      </section>
-      <footer>
-        <p>Subtotal: ${product.price * product.quantity}</p>
-        <button onClick={() => removeItem(product.id)}>X</button>
-      </footer>
-    </article>
+        <Tbody>
+          <Tr>
+            <Td>{product.quantity}</Td>
+            <Td>{product.name}</Td>
+            <Td>{product.price}</Td>
+            <Td>{product.price * product.quantity}</Td>
+            <Td><button onClick={() => removeItem(product.id)}>X</button></Td>
+          </Tr>
+        </Tbody>
   );
 };
 
