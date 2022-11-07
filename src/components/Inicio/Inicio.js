@@ -1,5 +1,6 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
+import { Link } from "react-router-dom";
 import "./inicio.css";
 
 const Inicio = () => {
@@ -8,11 +9,13 @@ const Inicio = () => {
       <div>
         <Carousel className="containerCarousel" variant="dark">
           <Carousel.Item className="container-carousel">
+            <Link to={`/category/set`}>
             <img
               className="imgC"
               src="https://rougeb2car.vtexassets.com/assets/vtex.file-manager-graphql/images/45bd30c1-12dd-4809-a0ea-a2d81014f7b0___147a2e350f4a7306aa865810edddf521.jpg"
               alt="First slide"
             />
+            </Link>
             <Carousel.Caption></Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item className="container-carousel">

@@ -1,19 +1,24 @@
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
+import React from 'react'
 import "./cards.css";
 
 function Cards({ id, img, name, description, price }) {
   return (
     <div className="cards col-md-4">
-      <Card.Img variant="top" src={img} />
+      <Card className='card'>
+      <Card.Img variant="top" src={img} style={{ width: '100%', objectFit: 'fill'}} />
       <Card.Body>
         <Card.Title>{name}</Card.Title>
-        <Card.Text className="cardText">{description}</Card.Text>
-        <h3>${price}</h3>
+        <p className='price'>${price}</p>
+        <Card.Text>
+            {description}
+        </Card.Text>
       </Card.Body>
-      <Link to={`/detail/${id}`} className="btn btn-primary">
+       <Link to={`/detail/${id}`} className="btn btn-primary">
         Ver detalle
       </Link>
+      </Card>
     </div>
   );
 }

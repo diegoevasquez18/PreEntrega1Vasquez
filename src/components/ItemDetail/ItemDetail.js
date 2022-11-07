@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Botones from "../ItemCount/Botones";
 import { useState } from "react";
 import "./itemsDetail.css";
+import { Grid, Image, Rail, Segment } from "semantic-ui-react";
 import { useAlert } from "../../Alerta/AlertContext";
 import { useNavigate } from "react-router-dom";
 
@@ -30,16 +31,20 @@ const Detalle = ({ id, stock, img, name, detail, price, quantity }) => {
   // const productAddedQuantity = getProductQuantity(id)
 
   return (
-    <div className="cardDetailContainer">
-      <div className="cardDetalladoItem">
-        <img className="imgDetail" src={img} alt=".." />
-        <div className="card-body">
-          <h5 className="card-title">{name}</h5>
-          <p className="card-text-detail">{detail}</p>
-          <div className="card-important">
-            <h3>${price}</h3>
-            <p>Stock({stock})</p>
-            <div>
+     <Grid>
+        <Grid.Column>
+          <Segment>
+              <img className="imgDetail" src={img} alt=".." />
+              <Rail position='right'>
+                <div className="card-body">
+                <h5 className="card-title">{name}</h5>
+                <p className="card-text-detail">{detail}</p>
+                </div>
+                    <div className="card-important">
+                  <h3>${price}</h3>
+                  <p>Stock({stock})</p>
+                  </div>
+                  <div>
               {!user ? (
                 <Button variant="primary" className="btnLogin"
                   size="md"
@@ -67,10 +72,10 @@ const Detalle = ({ id, stock, img, name, detail, price, quantity }) => {
               Voler
             </Link>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+            </Rail>
+          </Segment>
+        </Grid.Column>
+      </Grid>
+    );
 };
 export default Detalle;

@@ -3,13 +3,6 @@
     justify-content: center;
     flex-wrap: nowrap;
 }
-.cardDetalladoItem {
-    display: flex;
-    justify-content: center;
-    margin: 40px;
-    width: 50%;
-    background-color: rgba(217, 230, 102, 0.548);
-}
 .imgDetail {
     width: auto;
     margin: 5px 5px 5px 5px;   

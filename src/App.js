@@ -5,7 +5,6 @@ import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import ProductDetail from "./components/ItemDetailContainer/ItemDetailContainer";
 import Productos from "./components/ItemListContainer/ItemListContainer";
-import Profile from "./components/Client/Profile/Profile";
 import Cart from "./components/Cart/Cart";
 
 import { Register } from "./components/Client/Register/Register";
@@ -38,7 +37,6 @@ function App() {
                   <Route path="/cart" element={<Cart />} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/register" element={<Register />} />
-                  <Route path="/profile" element={<Profile />} />
                 </Routes>
               </BrowserRouter>
               <Footer />
