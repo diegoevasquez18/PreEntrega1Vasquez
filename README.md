@@ -25,6 +25,7 @@ See [`.env.example`](https://github.com/diegoevasquez18/ProyectoFinalVasquez/blo
 - [Chakra UI](https://chakra-ui.com/)
 - [Material UI](https://mui.com/)
 - [React Boostrap](https://react-bootstrap.github.io/)
+- [Semantic UI](https://react.semantic-ui.com/)
 
 ## Test App
 
